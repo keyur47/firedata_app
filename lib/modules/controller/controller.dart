@@ -9,8 +9,6 @@ class Controller extends GetxController {
   Firestore firestoreRepository = Firestore();
   RxBool isLoader = false.obs;
   RxList<UserDataModel> historyDataList = <UserDataModel>[].obs;
-  TextEditingController titleController = TextEditingController();
-  TextEditingController linkController = TextEditingController();
 
   @override
   onInit() {
@@ -23,7 +21,7 @@ class Controller extends GetxController {
     try {
       isLoader.value = true;
       historyDataList.value = await firestoreRepository.getData();
-      isLoader.value = false;
+    isLoader.value = false;
     } catch (error) {
       isLoader.value = false;
       print("Error ${error.toString()}");

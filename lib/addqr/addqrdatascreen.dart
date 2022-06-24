@@ -79,11 +79,23 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     CircleAvatar(
+                                      backgroundColor: Colors.grey[400],
                                       backgroundImage: FileImage(
                                         File("${controller.historyDataList[index].image}"),
                                       ),
-                                      radius: 40,
+                                      radius: 19,
                                     ),
+                                    Container(
+                                      width: 20,
+                                      child: Image.asset("${controller.historyDataList[index].image}")),
+                                    Container(
+                                      width: 20,
+                                      child: Image.file(File("${controller.historyDataList[index].image}"))),
+                                    Container(
+                                      width: 20,
+                                      child: Image.network("${controller.historyDataList[index].image}")),
+                                    Text(
+                                        "${controller.historyDataList[index].image}",style: const TextStyle(fontSize: 25),),
                                     Text(
                                       controller.historyDataList[index].title
                                               ?.toUpperCase() ??
